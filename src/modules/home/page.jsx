@@ -1,7 +1,11 @@
+import DashboardPage from "../dashboard/page"; 
+import "./style.css"
 function HomePage() {
-  return <>
-    <h1>Une page d'accueil pour l'application, mais qui n'as pas d'utilité.</h1>
-  </>
+  return (<>
+    <div className="BackgroundHomeContainer">
+      <DashboardPage/>
+    </div>
+  </>);
 }
 
 export default HomePage
