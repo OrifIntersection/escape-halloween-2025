@@ -6,8 +6,13 @@ Comportement de base
 .DashboardContainer {
     display:flex;
     height:100%;
-    padding: 100px;
+    padding: 80px;
     flex-direction: column;
+
+    color:white;
+
+    font-family:"Montserrat";
+    font-size: large;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------
@@ -35,10 +40,10 @@ Dashboard Elements Container
        /*
        border: 2px dotted black; 
        */
-        border-radius: 3%;
-        
 
-        background-color: rgba(255, 255, 255, 0.10);
+        border-radius: 58px;
+        
+        background-color: rgba(0, 0, 0, 0.5);
 
         display: flex;
 
@@ -53,9 +58,9 @@ Dashboard Elements Container
         width: 70%;
         height: 100%;
                 
-        border-radius: 3%;
+        border-radius: 58px;
 
-        background-color: rgba(255, 255, 255, 0.10);
+        background-color: rgba(0, 0, 0, 0.5);
 
         /*
         border: 2px dotted black; 

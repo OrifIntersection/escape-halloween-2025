@@ -1,0 +1,21 @@
+[
+   {
+        "title":"Introduction",
+        "description":"Cette vidéo sert à introduire l’histoire ainsi que l’ambiance d’introduction",
+        "order":"1",
+        "duration":"0:52"
+     },
+     {
+        "title":"Commencement",
+        "description":"Cette vidéo sert à commencer l’histoire et a instaurer les premiers détails de l’histoire",
+        "order":"2",
+        "duration":"1:14"
+     },
+     {
+        "title":"Aperçu",
+        "description":"Aperçu de je ne sais pas, je n’ai plus d’inspiration afin de compléter mon élément donc c’est pour cela que ma phrase n’a ni queue ni tête.",
+        "order":"3",
+        "duration":"0:38"
+     }
+
+]

@@ -1,46 +1,46 @@
-import { useState } from "react"
-import "./style.css"
+import { useState } from "react";
+import AnimationsPage from "../animations/page.jsx";
+import AnswersPage from "../answers/page.jsx";
+import CluesPage from "../clues/page.jsx";
+import "./style.css";
 
-function MainSequence() {
+function SequencesAnimations() {
   return(<>
-    <h1 style={{margin:"10px"}}>
-      Main
-    </h1>
+      <AnimationsPage/>
   </>)
 }
 
-function InputSequence() {
+function SequencesAnswers() {
   return(<>
-    <h1>
-      Input
-    </h1>
+      <AnswersPage/>
   </>)
 }
 
-function HintsSequence() {
+function SequencesClues() {
   return(<>
-    <h1>
-      Hints
+    <h1 style={{margin:"20px"}}>
+      <CluesPage/>
     </h1>
   </>)
 }
 function DashboardPage() {
 
   // Dashboard - Elements des séquences
+  let element;
+
   const [Sequence, setSequence ] = useState(0);
 
-  let element;
   switch(Sequence) {
     case 0:
-      element = <MainSequence/>
+      element = <SequencesAnimations/>
     break;
 
     case 1:
-      element = <InputSequence/>
+      element = <SequencesAnswers/>
     break;
 
     case 2:
-      element = <HintsSequence/>
+      element = <SequencesClues/>
     break;
   }
 
@@ -58,7 +58,7 @@ function DashboardPage() {
       </div>
       <div className="DashboardElementsCont">
         <div className="DashboardElementStoryframeCont">
-          <p>Trame de l'histoire</p>
+          <p style={{margin:"20px"}}> Trame de l'histoire </p>
         </div>
         <div className="DashboardElementSequenceCont">
           {element}
