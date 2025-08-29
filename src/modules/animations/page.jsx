@@ -1,22 +1,25 @@
+import { useState, useEffect } from "react";
+
 import "./style.css";
-import "../../mocks/sequence.json";
 
-
-function SequenceItem() {
-
-fetch("sequence.json")
-.then(response => {
-  if (!response.ok) {
-    throw new Error("Error");
-  }
-})
+function SequenceItem({Sequences}) {
+  
+  console.log("SequenceItem", Sequences);
 
   return (<>
-    <div>
+    <div className="AnimationSequenceContainer">
       <div>
-        <img alt="Preview" src="../../assets/images/sequences/image.png" style={{}}/>
+        <img alt="" src="/sequences/image.png" style={{}}/>
       </div>
-      <div></div>
+      <div className="AnimationSequenceInfoCont">
+        <div className="AnimationSequenceInfoTitle">
+
+        {Sequences[0].title}
+        </div>
+        <div className="AnimationSequenceInfoDescr">
+
+        </div>
+      </div>
       <div></div>
       <div></div>
     </div>
@@ -28,6 +31,28 @@ fetch("sequence.json")
 
 function AnimationsPage() {
 
+// Données mockées
+
+  const [Sequences, setSequences] = useState("");
+
+  useEffect(() => {
+    fetch("/mocks/sequence.json")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Error");
+          }
+          return response.json();
+        })
+        .then(data => {
+          setSequences(data)
+          console.log("Fetch succes, update: ", data);
+
+        })
+        .catch(error => {
+          console.log("Catch Error : ", error);
+        })
+    }, []);
+
 
   return (<>
       <div className="AnimationContainer">
@@ -38,7 +63,7 @@ function AnimationsPage() {
     
             </div>
             <div className="AnimationSequencesListCont">
-            <SequenceItem/>
+            <SequenceItem Sequences={Sequences}/>
           
             </div>
       </div>
