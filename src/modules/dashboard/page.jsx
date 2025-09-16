@@ -25,7 +25,7 @@ function SequencesClues() {
 }
 function DashboardPage() {
 
-  // Dashboard - Elements des séquences
+  // Dashboard - Content of sequencies table
   let element;
 
   const [Sequence, setSequence ] = useState(0);
@@ -48,10 +48,8 @@ function DashboardPage() {
 
   return (<>
     <div className="DashboardContainer">
-      <h1>
-        
-        Une page pour monitorer l'avancement des participants par les animateurs, et activer états de la partie.
-        
+      <h1 style={{}}>
+              TABLEAU DE BORD HALLOWEEN         
       </h1>
       <div className="DashboardNavCont">
 

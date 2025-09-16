@@ -11,7 +11,9 @@ import './index.css'
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ /*
+ Enlever les doublons dans la console
+ <StrictMode>*/
       <RouterProvider router={router} />
-  </StrictMode>,
+  //</StrictMode>,
 )

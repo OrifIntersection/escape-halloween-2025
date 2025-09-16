@@ -5,14 +5,16 @@ Comportement de base
 
 .DashboardContainer {
     display:flex;
-    height:100%;
-    padding: 80px;
+
     flex-direction: column;
 
     color:white;
 
     font-family:"Montserrat";
     font-size: large;
+
+    height: 100%;
+    padding: 80px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
-/* ------------------------------------------------------------------------------------------------------------------------------------------
-Animation Elements Container
+
+/*
+---------------------------------- FUNCTION Animation Page --------------------------------
 */
 
 .AnimationContainer {
@@ -15,8 +16,7 @@ Animation Elements Container
     gap: 20px;
 }
     
-    /* ------------------------------------------------------------------------------------------------------------------------------------------
-    Animation Apercu Container
+    /* ----------------------------Animation Apercu Container----------------------------------------------------------------------------
     */
 
     .AnimationSequencePreviewCont {
@@ -30,10 +30,19 @@ Animation Elements Container
 
         object-fit: cover; 
     }
+
+
+    .AnimationSequenceTitles {
+        display: grid;
+
+        grid-template-columns:30fr 1fr 3fr;
+        grid-template-rows: 1fr;
+
+        padding-left: 3% ;
         
-    /* ------------------------------------------------------------------------------------------------------------------------------------------
-    Animation Seéquence Container
-    */
+        gap: 10%;
+    }    
+    /* ------------------------------ Animation Seéquence Container ----------------------------------------------------------------------- */
 
     .AnimationSequencesListCont {
         background-color: rgba(255, 255, 255, 0.2);
@@ -42,7 +51,53 @@ Animation Elements Container
         width: 100%;
         height: 100%;
 
-        padding: 20px;
+        padding: 30px;
+
+        overflow: scroll;
     }
 
     
+
+
+/*
+---------------------------------- FUNCTION SequenceItem --------------------------------
+*/
+
+
+/*
+---------------------------------- Main container ----------------------------
+*/
+
+.AnimationSequenceContainer {
+    display: flex;
+
+    flex-flow: row nowrap;
+
+    gap: 10%;
+}
+    /*
+        --------------------------- Container title + description -------------------------------------
+    */
+    .AnimationSequenceInfoCont {
+        display: flex;
+
+        flex-flow: column nowrap;
+
+        width: 58%;
+    }
+
+        /*
+        --------------------------- Container du contenun des séquences -------------------------------------
+        */
+        .AnimationSequenceInfoTitle {
+            display: flex;
+            flex-flow: column wrap;
+
+            font-size: large;
+        }
+
+        .AnimationSequenceInfoDescr {
+            display: flex;
+
+            font-size: small;
+        }
