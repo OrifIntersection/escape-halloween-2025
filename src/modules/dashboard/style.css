@@ -12,6 +12,7 @@ Comportement de base
 
     font-family:"Montserrat";
     font-size: large;
+    z-index: 1px;
 
     height: 100%;
     padding: 80px;

@@ -1,44 +1,88 @@
 import { useState, useEffect } from "react";
-
+import image from '../../assets/images/sequences/image.png';
 import "./style.css";
 
-function SequenceItem({Sequences, i}) {
+function SequenceItem({data, i, ActiveSequenceFunction, setActiveSequence, setActivePreview}) {
+
+  // Fonction du click sur la séquence
+
+  function handleClick(e) {
+    e.preventDefault();
+    setActiveSequence(ActiveSequenceFunction);
+    setActivePreview("OK");
+  }
+
   return (<>
-    <div className="AnimationSequenceContainer">
+    <div className="AnimationSequenceContainer" onClick={handleClick}>
       <div>
-        <img alt="aperçu de séquence" src="assets/images/sequences/image.png" style={{height:"100px",width:"100px"}}/>
+        <img alt="aperçu de séquence" src={image} style={{height:"100px",width:"100px"}}/>
       </div>
+
       <div className="AnimationSequenceInfoCont">
         <div className="AnimationSequenceInfoTitle">
-          {Sequences[i]?.title}
+          {data[i]?.title}
         </div>
         <div className="AnimationSequenceInfoDescr">
-          {Sequences[i]?.description}
+          {data[i]?.description}
         </div>
+      </div>
 
-      </div>
       <div>
-        {Sequences[i]?.order}
+        {data[i]?.order}
       </div>
+
       <div style={{paddingLeft:"2%"}}>
-        {Sequences[i]?.duration}
+        {data[i]?.duration}
       </div>
     </div>  
   </>)  
 }
 
 function AnimationsPage() {
-
-// Données mockées
-
-  const [Sequences, setSequences] = useState("");
+  
   let i = 0;
+//------------------------------------------------------------------------------------------
+//                                        Séquences
+//------------------------------------------------------------------------------------------
 
-//                                                  /\
-// Récupération des données via useState Sequences /||\
-//                                                  ||
-//                                                  ||
+// State de la vidéo de la séquence active
+  const [ActivePreview, setActivePreview] = useState("");
 
+// Affichage de l'aperçu de séquence activée, désactivée 
+  function ActiveSequenceFunction() {
+    return(<>
+      <div>         
+        Active
+        {ActivePreview}
+      </div>
+    </>);
+  }
+
+  function DesactiveSequenceFunction() {
+    return(            
+      <div className="AnimationSequencePreviewCont">
+        <p>
+          Désactivé
+        </p>
+      </div>
+    );
+  }
+
+// State de la séquence active + son aperçu
+
+  const [ActiveSequence, setActiveSequence] = useState(DesactiveSequenceFunction);
+
+//------------------------------------------------------------------------------------------
+//                                      Données mockées
+//------------------------------------------------------------------------------------------
+
+  const [Data, setData] = useState("");
+
+/*                                                  /\
+   Récupération des données via useState Sequences /||\
+                                                    ||
+                                                    ||
+*/
   useEffect(() => {
     fetch("/mocks/sequence.json")
         .then(response => {
@@ -48,7 +92,7 @@ function AnimationsPage() {
           return response.json();
         })
         .then(data => {
-          setSequences(data)
+          setData(data)
           console.log("Fetch succes, update: ", data);
 
         })
@@ -57,12 +101,25 @@ function AnimationsPage() {
         })
     }, []);
 
+//------------------------------------------------------------------------------------------
+
+    useEffect(()=> {
+      let video = document.createElement('video');
+      video.src = Data[i]?.file;
+      video.controls = true;
+      video.width = 640;
+
+      setActivePreview(video)
+    }, [ActiveSequence])
+
 
   return (<>
       <div className="AnimationContainer">
+            
             <div className="AnimationSequencePreviewCont">
-              <p>Aperçu</p>
+              <video src={ActivePreview}/>
             </div>
+
             <div>
               
             </div>
@@ -72,9 +129,10 @@ function AnimationsPage() {
               <p>Durée</p>
               </div>
             <div className="AnimationSequencesListCont">
-            <SequenceItem Sequences={Sequences} i={0}/>
-            <SequenceItem Sequences={Sequences} i={1}/>
-            <SequenceItem Sequences={Sequences} i={2}/>
+
+            <SequenceItem i={0} data={Data} ActiveSequenceFunction={ActiveSequenceFunction} setActiveSequence={setActiveSequence} setActivePreview={setActivePreview}/>
+            <SequenceItem i={1} data={Data} ActiveSequenceFunction={ActiveSequenceFunction} setActiveSequence={setActiveSequence} setActivePreview={setActivePreview}/>
+            <SequenceItem i={2} data={Data} ActiveSequenceFunction={ActiveSequenceFunction} setActiveSequence={setActiveSequence} setActivePreview={setActivePreview}/>
             </div>
       </div>
   </>)
