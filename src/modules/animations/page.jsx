@@ -51,9 +51,9 @@ function AnimationsPage() {
 // Affichage de l'aperçu de séquence activée, désactivée 
   function ActiveSequenceFunction() {
     return(<>
-      <div>         
-        Active
-        {ActivePreview}
+      <div className="AnimationSequencePreviewCont">         
+        <p>Active</p>
+        {}
       </div>
     </>);
   }
@@ -94,7 +94,7 @@ function AnimationsPage() {
         .then(data => {
           setData(data)
           console.log("Fetch succes, update: ", data);
-
+          
         })
         .catch(error => {
           console.log("Catch Error : ", error);
@@ -103,21 +103,27 @@ function AnimationsPage() {
 
 //------------------------------------------------------------------------------------------
 
-    useEffect(()=> {
+  useEffect(()=> {
+      const parent = document.getElementsByClassName('AnimationSequencePreviewCont')
       let video = document.createElement('video');
-      video.src = Data[i]?.file;
+      video.src = Data[0].file;
       video.controls = true;
+      video.setAttribute('controls', true)
       video.width = 640;
 
       setActivePreview(video)
-    }, [ActiveSequence])
+
+      parent[1].appendChild(video)
+
+      console.log(ActivePreview, "UseEffect actuellement utilisé")
+    }, [ActiveSequence])  
 
 
   return (<>
       <div className="AnimationContainer">
             
             <div className="AnimationSequencePreviewCont">
-              <video src={ActivePreview}/>
+              {ActiveSequence}
             </div>
 
             <div>
