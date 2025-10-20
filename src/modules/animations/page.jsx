@@ -9,10 +9,11 @@ function SequenceItem({data, i, ActiveSequenceFunction, setActiveSequence, setAc
   function handleClick(e) {
     e.preventDefault();
     setActiveSequence(ActiveSequenceFunction);
-    setActivePreview("OK");
   }
 
-  return (<>
+
+
+  return (<>{data ? <>
     <div className="AnimationSequenceContainer" onClick={handleClick}>
       <div>
         <img alt="aperçu de séquence" src={image} style={{height:"100px",width:"100px"}}/>
@@ -34,8 +35,8 @@ function SequenceItem({data, i, ActiveSequenceFunction, setActiveSequence, setAc
       <div style={{paddingLeft:"2%"}}>
         {data[i]?.duration}
       </div>
-    </div>  
-  </>)  
+    </div>  </>:<>Loading</>
+  }  </>)  
 }
 
 function AnimationsPage() {
@@ -46,12 +47,13 @@ function AnimationsPage() {
 //------------------------------------------------------------------------------------------
 
 // State de la vidéo de la séquence active
-  const [ActivePreview, setActivePreview] = useState("");
+  const [ActivePreview, setActivePreview] = useState(null);
 
 // Affichage de l'aperçu de séquence activée, désactivée 
+
   function ActiveSequenceFunction() {
     return(<>
-      <div className="AnimationSequencePreviewCont">         
+      <div className="AnimationSequencePreviewCont"> 
         <p>Active</p>
         {}
       </div>
@@ -60,7 +62,7 @@ function AnimationsPage() {
 
   function DesactiveSequenceFunction() {
     return(            
-      <div className="AnimationSequencePreviewCont">
+      <div className="AnimationSequencePreviewCont"> 
         <p>
           Désactivé
         </p>
@@ -73,16 +75,17 @@ function AnimationsPage() {
   const [ActiveSequence, setActiveSequence] = useState(DesactiveSequenceFunction);
 
 //------------------------------------------------------------------------------------------
-//                                      Données mockées
+//                                      Données 
 //------------------------------------------------------------------------------------------
 
-  const [Data, setData] = useState("");
+  const [Data, setData] = useState();
 
 /*                                                  /\
    Récupération des données via useState Sequences /||\
                                                     ||
                                                     ||
 */
+
   useEffect(() => {
     fetch("/mocks/sequence.json")
         .then(response => {
@@ -92,9 +95,8 @@ function AnimationsPage() {
           return response.json();
         })
         .then(data => {
-          setData(data)
           console.log("Fetch succes, update: ", data);
-          
+          setData(data)
         })
         .catch(error => {
           console.log("Catch Error : ", error);
@@ -104,28 +106,34 @@ function AnimationsPage() {
 //------------------------------------------------------------------------------------------
 
   useEffect(()=> {
-      const parent = document.getElementsByClassName('AnimationSequencePreviewCont')
-      let video = document.createElement('video');
-      video.src = Data[0].file;
-      video.controls = true;
-      video.setAttribute('controls', true)
-      video.width = 640;
+   // setTimeout(() => {
 
-      setActivePreview(video)
+      console.log("useEffect")
+        if (Data) {
+          console.log("Data is useEffect")
+          const parent = document.getElementsByClassName('AnimationSequencePreviewCont')
+          let video = document.createElement('video');
+          video.src = Data[0].file;
+          video.controls = true;
+          video.setAttribute('controls', true)
+          video.width = 640;
+          setActivePreview(video)
 
-      parent[1].appendChild(video)
+          parent[1].appendChild(video)        
+        }
+     // }, 3000);
+     }, [ActiveSequence])
 
-      console.log(ActivePreview, "UseEffect actuellement utilisé")
-    }, [ActiveSequence])  
+  useEffect(()=> {
 
+      console.log(ActivePreview, "ActivePreview")
+  }, [ActivePreview])
 
   return (<>
       <div className="AnimationContainer">
-            
             <div className="AnimationSequencePreviewCont">
               {ActiveSequence}
             </div>
-
             <div>
               
             </div>

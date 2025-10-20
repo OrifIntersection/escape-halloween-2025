@@ -29,7 +29,6 @@ function DashboardPage() {
   let element;
 
   const [Sequence, setSequence ] = useState(0);
-
   switch(Sequence) {
     case 0:
       element = <SequencesAnimations/>
