@@ -16,21 +16,31 @@
     gap: 20px;
 }
     
+.AnimationTable {
+    display: flex;
+    flex-direction: row;
+    gap: 25%;
+}
     /* ----------------------------Animation Apercu Container----------------------------------------------------------------------------
-    */
+        */
+
+    .AnimationSequenceP {
+        
+    }
 
     .AnimationSequencePreviewCont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         background-color: black;
         border-radius: 28px;
         
-        width: 50%;
-        height: 40%;
-
-        padding: 20px;
-
+        width: 45%;
+        height: 70%;
         object-fit: cover; 
+        margin-bottom: 50px;
     }
-
 
     .AnimationSequenceTitles {
         display: grid;
@@ -70,10 +80,11 @@
 
 .AnimationSequenceContainer {
     display: flex;
-
     flex-flow: row nowrap;
 
-    gap: 10%;
+    gap: 8%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
     /*
         --------------------------- Container title + description -------------------------------------
