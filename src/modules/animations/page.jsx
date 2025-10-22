@@ -133,44 +133,44 @@ function AnimationsPage() {
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
-// VIRER SES ECRANS SUR LES AUTRES FICHIER PAGE.JSX
+  // VIRER SES ECRANS SUR LES AUTRES FICHIER PAGE.JSX
 
 
 
-//-------------------------------------------------------------------------------------------------------------------------  Ecran secondaires  ----------------
- 
+  //-------------------------------------------------------------------------------------------------------------------------  Ecran secondaires  ----------------
+  
 
 
 
 
-//------------------------------------------------------------------------------------------------------------------------  Fonctions des écrans  -----
-function PrincipalScreen() {
-    return (<>
-      <div className="AnimationContainer">
-        <div className="AnimationTable">
-          {tabs.map((tab, index) => {
-            return (<>
-              <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
-            </>)
-          })}
+  //------------------------------------------------------------------------------------------------------------------------  Fonctions des écrans  -----
+  function AnimationScreen() {
+      return (<>
+        <div className="AnimationContainer">
+          <div className="AnimationTable">
+            {tabs.map((tab, index) => {
+              return (<>
+                <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
+              </>)
+            })}
 
+          </div>
+          {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
+          <div className="AnimationSequenceTitles">
+            <p>Séquences :</p>
+            <p>Position</p>
+            <p>Durée</p>
+          </div>
+          <div className="AnimationSequencesListCont">
+            {(sequences) ? <>
+              {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
+            </> : <>Loading sequences</>}
+          </div>
         </div>
-        {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
-        <div className="AnimationSequenceTitles">
-          <p>Séquences :</p>
-          <p>Position</p>
-          <p>Durée</p>
-        </div>
-        <div className="AnimationSequencesListCont">
-          {(sequences) ? <>
-            {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
-          </> : <>Loading sequences</>}
-        </div>
-      </div>
-    </>)
-  }
+      </>)
+    }
 
-  function SecondaryScreen() {
+  function CluesScreen() {
     return (<>
       <div className="AnimationContainer">
         <div className="AnimationTable">
@@ -207,16 +207,20 @@ function PrincipalScreen() {
   switch (activeTab) {
     case tabs[0]:
       return (<>
-        <PrincipalScreen />
+        <AnimationScreen />
       </>)
     case tabs[1]:
       return (<>
-        <SecondaryScreen />
+        <CluesScreen />
       </>)
     case tabs[2]:
-      break;
+      return(<>
+        <AnimationScreen />
+      </>)
     case tabs[3]:
-      break;
+      return(<>
+        <AnimationScreen />
+      </>)
   }
 
 }

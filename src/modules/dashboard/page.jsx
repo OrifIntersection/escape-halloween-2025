@@ -28,7 +28,8 @@ function DashboardPage() {
   // Dashboard - Content of sequencies table
   let element;
 
-  const [Sequence, setSequence ] = useState(0);
+  const [Sequence, setSequence] = useState(0);
+ 
   switch(Sequence) {
     case 0:
       element = <SequencesAnimations/>
@@ -46,8 +47,9 @@ function DashboardPage() {
   // Autres var
 
   return (<>
+  
     <div className="DashboardContainer">
-      <h1 style={{}}>
+      <h1>
               TABLEAU DE BORD HALLOWEEN         
       </h1>
       <div className="DashboardNavCont">
