@@ -1,0 +1,30 @@
+[
+   {
+      "id": 1,
+      "title": "Indice 1",
+      "description": "Premier indice",
+      "order": 1,
+      "file": "public/mocks/videos_principal/10sec.mp4"
+   },
+   {
+      "id": 2,
+      "title":"Indice 2",
+      "description": "Deuxième indice",
+      "order": 2,
+      "file": "public/mocks/videos_principal/20sec.mp4"
+   },
+   {
+      "id": 3,
+      "title":"Indice 3",
+      "description": "Troisième indice",
+      "order": 3,
+      "file": "public/mocks/videos_principal/30sec.mp4"
+   },
+   {
+      "id": 4,
+      "title": "Indice 4",
+      "description": "Quatrième indice",
+      "order": 4,
+      "file": "public/mocks/videos_principal/40sec.mp4"
+   }
+]

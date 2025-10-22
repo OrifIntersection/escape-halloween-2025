@@ -28,16 +28,22 @@
 .AnimationTableActive {
     color: white;
 }
+.AnimationTableActive:hover {
+    color: white;
+}
 
 .AnimationTableInactive {
-    color: #000;
+    color: #a1a1a1;
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.3s ease; 
+}
+.AnimationTableInactive:hover {
+    color: #fffefe;
+    transform: scale(1.2);
+    animation: transform ;
 }
     /* ----------------------------Animation Apercu Container----------------------------------------------------------------------------
         */
-
-    .AnimationSequenceP {
-        
-    }   
 
     .AnimationSequencePreviewCont {
         display: flex;

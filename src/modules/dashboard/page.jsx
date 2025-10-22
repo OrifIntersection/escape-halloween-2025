@@ -60,11 +60,6 @@ function DashboardPage() {
         <div className="DashboardElementSequenceCont">
           {element}
         </div>
-        {/*
-        <div className="DashboardElementMenuCont">
-          <p>Menu</p>
-        </div>
-        */}
       </div>
     </div>
   </>)
