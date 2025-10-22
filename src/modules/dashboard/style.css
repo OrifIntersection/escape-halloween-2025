@@ -1,0 +1,113 @@
+
+/*
+Comportement de base 
+*/
+
+.DashboardContainer {
+    display:flex;
+
+    flex-direction: column;
+
+    color:white;
+
+    font-family:"Montserrat";
+    font-size: large;
+    z-index: 1px;
+
+    height: 100%;
+    padding: 80px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------
+Dashboard Elements Container
+*/
+
+.DashboardElementsCont {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+    gap: 5%;
+}
+
+    /* ------------------------------------------------
+    Dashboard Elements Container > Story frame 
+    */
+
+    .DashboardElementStoryframeCont {
+        width: 30%;
+        height: 100%;
+
+       /*
+       border: 2px dotted black; 
+       */
+
+        border-radius: 58px;
+        
+        background-color: rgba(0, 0, 0, 0.5);
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    /* ------------------------------------------------
+    Dashboard Elements Container > Sequence 
+    */
+
+    .DashboardElementSequenceCont {
+        width: 70%;
+        height: 100%;
+                
+        border-radius: 58px;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        /*
+        border: 2px dotted black; 
+        */
+    }
+
+
+
+
+    /*
+    --------------AUTRES------------------
+    */
+
+
+    /* -------------------------------------------------------------------------------------------------------------------------------------------
+     Dashboard Elements Container > Menu
+    */
+
+    .DashboardElementMenuCont {
+        width: 200px;
+        border: 2px dotted black;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
