@@ -72,78 +72,6 @@ function AnimationTable({ tab, tabs, activeTab, index, setActiveTab }) {
 
 
 function AnimationsPage() {
-
-  //------------------------------------------------------------------------------------------
-  //                                        Séquences
-  //------------------------------------------------------------------------------------------ 
-
-  // State de la séquence active + son aperçu
-  const [activeSequence, setActiveSequence] = useState(null);
-
-  //------------------------------------------------------------------------------------------
-  //                                         Données 
-  //------------------------------------------------------------------------------------------
-  const [sequences, setSequences] = useState(null);
-
-  /*                                                  /\
-     Récupération des données via useState Sequences /||\
-                                                      ||
-                                                      ||
-  */
-  useEffect(() => {
-    fetch("/mocks/sequence_pincipal.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Error");
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Fetch succes, update: ", data);
-        setSequences(data)
-      })
-      .catch(error => {
-        console.log("Catch Error : ", error);
-      })
-  }, []);
-
-
-  //----------------------------------Navigation bar-----------------------------------------
-
-  const [tabs, setTabs] = useState(
-    [
-      {
-        "id": 0,
-        "label": "Écran principal",
-      },
-      {
-        "id": 1,
-        "label": "Écran indices",
-      },
-      {
-        "id": 2,
-        "label": "Écran input",
-      },
-      {
-        "id": 3,
-        "label": "Dashboard",
-      }
-    ]
-  );
-
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-
-  // VIRER SES ECRANS SUR LES AUTRES FICHIER PAGE.JSX
-
-
-
-  //-------------------------------------------------------------------------------------------------------------------------  Ecran secondaires  ----------------
-  
-
-
-
-
-  //------------------------------------------------------------------------------------------------------------------------  Fonctions des écrans  -----
   function AnimationScreen() {
       return (<>
         <div className="AnimationContainer">
@@ -169,7 +97,7 @@ function AnimationsPage() {
         </div>
       </>)
     }
-
+/*
   function CluesScreen() {
     return (<>
       <div className="AnimationContainer">
@@ -203,7 +131,7 @@ function AnimationsPage() {
   function Dashboard() {
 
   }
-
+*/
   switch (activeTab) {
     case tabs[0]:
       return (<>

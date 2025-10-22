@@ -5,21 +5,21 @@ import CluesPage from "../clues/page.jsx";
 import "./style.css";
 
 function SequencesAnimations() {
-  return(<>
-      <AnimationsPage/>
+  return (<>
+    <AnimationsPage />
   </>)
 }
 
 function SequencesAnswers() {
-  return(<>
-      <AnswersPage/>
+  return (<>
+    <AnswersPage />
   </>)
 }
 
 function SequencesClues() {
-  return(<>
-    <h1 style={{margin:"20px"}}>
-      <CluesPage/>
+  return (<>
+    <h1 style={{ margin: "20px" }}>
+      <CluesPage />
     </h1>
   </>)
 }
@@ -29,35 +29,37 @@ function DashboardPage() {
   let element;
 
   const [Sequence, setSequence] = useState(0);
- 
-  switch(Sequence) {
+
+  switch (Sequence) {
     case 0:
-      element = <SequencesAnimations/>
-    break;
+      element = <SequencesAnimations />
+      break;
 
     case 1:
-      element = <SequencesAnswers/>
-    break;
+      element = <SequencesAnswers />
+      break;
 
     case 2:
-      element = <SequencesClues/>
-    break;
+      element = <SequencesClues />
+      break;
   }
+
+  
 
   // Autres var
 
   return (<>
-  
+
     <div className="DashboardContainer">
       <h1>
-              TABLEAU DE BORD HALLOWEEN         
+        TABLEAU DE BORD HALLOWEEN
       </h1>
       <div className="DashboardNavCont">
 
       </div>
       <div className="DashboardElementsCont">
         <div className="DashboardElementStoryframeCont">
-          <p style={{margin:"20px"}}> Trame de l'histoire </p>
+          <p style={{ margin: "20px" }}> Trame de l'histoire </p>
         </div>
         <div className="DashboardElementSequenceCont">
           {element}
