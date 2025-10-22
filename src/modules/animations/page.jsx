@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import image from '../../assets/images/sequences/image.png';
 import "./style.css";
-//------------------------------------------------------------------------------------------------------------------------------  ECRAN PRINCIPAL  -----------
-function SequenceItem1({ sequence1, setActiveSequence1 }) {
+//--------------------------------------------------------------------------------------------------------------------------------ECRAN PRINCIPAL -----------
+function SequenceItem({ sequence, setActiveSequence }) {
 
   // Fonction du click sur la séquence
 
   function handleClick(e) {
     e.preventDefault();
-    setActiveSequence1(sequence1);
+    setActiveSequence(sequence);
   }
 
   return (<>
@@ -19,19 +19,19 @@ function SequenceItem1({ sequence1, setActiveSequence1 }) {
 
       <div className="AnimationSequenceInfoCont">
         <div className="AnimationSequenceInfoTitle">
-          {sequence1.title}
+          {sequence.title}
         </div>
         <div className="AnimationSequenceInfoDescr">
-          {sequence1.description}
+          {sequence.description}
         </div>
       </div>
 
       <div>
-        {sequence1.order}
+        {sequence.order}
       </div>
 
       <div style={{ paddingLeft: "2%" }}>
-        {sequence1.duration}
+        {sequence.duration}
       </div>
     </div>
     <hr style={{ color: "black" }} />
@@ -83,7 +83,7 @@ function AnimationsPage() {
   //------------------------------------------------------------------------------------------
   //                                         Données 
   //------------------------------------------------------------------------------------------
-  const [sequences1, setSequences1] = useState(null);
+  const [sequences, setSequences] = useState(null);
 
   /*                                                  /\
      Récupération des données via useState Sequences /||\
@@ -100,7 +100,7 @@ function AnimationsPage() {
       })
       .then(data => {
         console.log("Fetch succes, update: ", data);
-        setSequences1(data)
+        setSequences(data)
       })
       .catch(error => {
         console.log("Catch Error : ", error);
@@ -137,26 +137,11 @@ function AnimationsPage() {
 
 
 
-//-------------------------------------------------------------------------------------------------------------------------  ECRAN SECONDAIRE  ----------------
+//-------------------------------------------------------------------------------------------------------------------------  Ecran secondaires  ----------------
  
-const [sequences2, setSequences2] = useState(null);
 
-  useEffect(() => {
-    fetch("/mocks/sequence_pincipal.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Error");
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Fetch succes, update: ", data);
-        setSequences2(data)
-      })
-      .catch(error => {
-        console.log("Catch Error : ", error);
-      })
-  }, []);
+
+
 
 //------------------------------------------------------------------------------------------------------------------------  Fonctions des écrans  -----
 function PrincipalScreen() {
@@ -177,8 +162,8 @@ function PrincipalScreen() {
           <p>Durée</p>
         </div>
         <div className="AnimationSequencesListCont">
-          {(sequences1) ? <>
-            {sequences1.map((SequenceItem1) => <SequenceItem1 sequence1={SequenceItem1} setActiveSequence1={setActiveSequence1} />)}
+          {(sequences) ? <>
+            {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
           </> : <>Loading sequences</>}
         </div>
       </div>
@@ -203,8 +188,8 @@ function PrincipalScreen() {
           <p>Durée</p>
         </div>
         <div className="AnimationSequencesListCont">
-          {(sequences2) ? <>
-            {sequences2.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
+          {(sequences) ? <>
+            {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
           </> : <>Loading sequences</>}
         </div>
       </div>
