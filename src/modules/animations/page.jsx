@@ -42,7 +42,7 @@ function ActiveSequencePreview({ sequence }) {
 
   return (<>
     <div style={{ overflow: "hidden" }} className="AnimationSequencePreviewCont">
-      <video style={{ objectFit: "cover", width: "100%", height: "100%" }} controls="true" src={sequence.file} type="video/mp4" autoPlay muted playsInline />
+      <video style={{ objectFit: "cover", width: "100%", height: "100%" }} controls={true} src={sequence.file} type="video/mp4" autoPlay muted playsInline />
     </div>
   </>);
 }

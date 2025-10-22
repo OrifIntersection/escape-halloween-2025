@@ -5,7 +5,7 @@
       "description": "Cette vidéo sert à introduire l’histoire ainsi que l’ambiance d’introduction",
       "order": 1,
       "duration": "0:52",
-      "file": "public/mocks/videos/10sec.mp4"
+      "file": "/mocks/videos_principal/10sec.mp4"
    },
    {
       "id": 2,
@@ -13,7 +13,7 @@
       "description": "Cette vidéo sert à commencer l’histoire et à instaurer les premiers détails de l’histoire",
       "order": 2,
       "duration": "1:14",
-      "file": "public/mocks/videos/20sec.mp4"
+      "file": "/mocks/videos_principal/20sec.mp4"
    },
    {
       "id": 3,
@@ -21,7 +21,7 @@
       "description": "Aperçu de je ne sais pas, je n’ai plus d’inspiration afin de compléter mon élément donc c’est pour cela que ma phrase n’a ni queue ni tête.",
       "order": 3,
       "duration": " 0:38",
-      "file": "public/mocks/videos/30sec.mp4"
+      "file": "/mocks/videos_principal/30sec.mp4"
    },
    {
       "id": 4,
@@ -29,6 +29,6 @@
       "description": "Aperçu de je ne sais pas, je n’ai plus d’inspiration afin de compléter mon élément donc c’est pour cela que ma phrase n’a ni queue ni tête.",
       "order": 4,
       "duration": "2:03",
-      "file": "public/mocks/videos/40sec.mp4"
+      "file": "/mocks/videos_principal/40sec.mp4"
    }
 ]
