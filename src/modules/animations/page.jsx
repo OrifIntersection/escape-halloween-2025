@@ -3,7 +3,6 @@ import image from '../../assets/images/sequences/image.png';
 import "./style.css";
 //--------------------------------------------------------------------------------------------------------------------------------ECRAN PRINCIPAL -----------
 function SequenceItem({ sequence, setActiveSequence }) {
-
   // Fonction du click sur la séquence
 
   function handleClick(e) {
@@ -72,79 +71,7 @@ function AnimationTable({ tab, tabs, activeTab, index, setActiveTab }) {
 
 
 function AnimationsPage() {
-
-  //------------------------------------------------------------------------------------------
-  //                                        Séquences
-  //------------------------------------------------------------------------------------------ 
-
-  // State de la séquence active + son aperçu
-  const [activeSequence, setActiveSequence] = useState(null);
-
-  //------------------------------------------------------------------------------------------
-  //                                         Données 
-  //------------------------------------------------------------------------------------------
-  const [sequences, setSequences] = useState(null);
-
-  /*                                                  /\
-     Récupération des données via useState Sequences /||\
-                                                      ||
-                                                      ||
-  */
-  useEffect(() => {
-    fetch("/mocks/sequence_pincipal.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Error");
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Fetch succes, update: ", data);
-        setSequences(data)
-      })
-      .catch(error => {
-        console.log("Catch Error : ", error);
-      })
-  }, []);
-
-
-  //----------------------------------Navigation bar-----------------------------------------
-
-  const [tabs, setTabs] = useState(
-    [
-      {
-        "id": 0,
-        "label": "Écran principal",
-      },
-      {
-        "id": 1,
-        "label": "Écran indices",
-      },
-      {
-        "id": 2,
-        "label": "Écran input",
-      },
-      {
-        "id": 3,
-        "label": "Dashboard",
-      }
-    ]
-  );
-
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-
-  // VIRER SES ECRANS SUR LES AUTRES FICHIER PAGE.JSX
-
-
-
-  //-------------------------------------------------------------------------------------------------------------------------  Ecran secondaires  ----------------
-  
-
-
-
-
-  //------------------------------------------------------------------------------------------------------------------------  Fonctions des écrans  -----
-  function AnimationScreen() {
+ function AnimationScreen() {
       return (<>
         <div className="AnimationContainer">
           <div className="AnimationTable">
@@ -203,7 +130,7 @@ function AnimationsPage() {
   function Dashboard() {
 
   }
-
+/*
   switch (activeTab) {
     case tabs[0]:
       return (<>
@@ -222,7 +149,31 @@ function AnimationsPage() {
         <AnimationScreen />
       </>)
   }
+*/
 
+ return (<>
+        <div className="AnimationContainer">
+          <div className="AnimationTable">
+            {tabs.map((tab, index) => {
+              return (<>
+                <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
+              </>)
+            })}
+
+          </div>
+          {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
+          <div className="AnimationSequenceTitles">
+            <p>Séquences :</p>
+            <p>Position</p>
+            <p>Durée</p>
+          </div>
+          <div className="AnimationSequencesListCont">
+            {(sequences) ? <>
+              {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
+            </> : <>Loading sequences</>}
+          </div>
+        </div>
+      </>)
 }
 
 export default AnimationsPage;
