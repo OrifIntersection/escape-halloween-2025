@@ -3,7 +3,6 @@ import image from '../../assets/images/sequences/image.png';
 import "./style.css";
 //--------------------------------------------------------------------------------------------------------------------------------ECRAN PRINCIPAL -----------
 function SequenceItem({ sequence, setActiveSequence }) {
-
   // Fonction du click sur la séquence
 
   function handleClick(e) {
@@ -72,7 +71,7 @@ function AnimationTable({ tab, tabs, activeTab, index, setActiveTab }) {
 
 
 function AnimationsPage() {
-  function AnimationScreen() {
+ function AnimationScreen() {
       return (<>
         <div className="AnimationContainer">
           <div className="AnimationTable">
@@ -97,7 +96,7 @@ function AnimationsPage() {
         </div>
       </>)
     }
-/*
+
   function CluesScreen() {
     return (<>
       <div className="AnimationContainer">
@@ -131,7 +130,7 @@ function AnimationsPage() {
   function Dashboard() {
 
   }
-*/
+/*
   switch (activeTab) {
     case tabs[0]:
       return (<>
@@ -150,7 +149,31 @@ function AnimationsPage() {
         <AnimationScreen />
       </>)
   }
+*/
 
+ return (<>
+        <div className="AnimationContainer">
+          <div className="AnimationTable">
+            {tabs.map((tab, index) => {
+              return (<>
+                <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
+              </>)
+            })}
+
+          </div>
+          {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
+          <div className="AnimationSequenceTitles">
+            <p>Séquences :</p>
+            <p>Position</p>
+            <p>Durée</p>
+          </div>
+          <div className="AnimationSequencesListCont">
+            {(sequences) ? <>
+              {sequences.map((sequenceItem) => <SequenceItem sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
+            </> : <>Loading sequences</>}
+          </div>
+        </div>
+      </>)
 }
 
 export default AnimationsPage;
