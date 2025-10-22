@@ -38,14 +38,6 @@ function SequenceItem({ sequence, setActiveSequence }) {
   </>)
 }
 
-
-/*
-
-   { 
-            (Data) ? <video controls="true" src={Data[0].file} />  : <> </>    
-          }
- */
-
 function ActiveSequencePreview({ sequence }) {
  
   return (<>
@@ -57,13 +49,27 @@ function ActiveSequencePreview({ sequence }) {
 
 function NoActiveSequencePreview() {
   return (
-    <div style={{margin:"20px"}} className="AnimationSequencePreviewCont">
+    <div style={{}} className="AnimationSequencePreviewCont">
       <p className="AnimationSequenceP">
         Désactivé
       </p>
     </div>
   );
 }
+ 
+function AnimationTable({tab, tabs, activeTab, index, setActiveTab}) {
+  function handleClick(e) {
+    e.preventDefault();
+    setActiveTab(tabs[index])
+  }
+  return(<>
+    <div onClick={handleClick} className={(tab.id === activeTab.id) ? "AnimationTableActive" : "AnimationTableInactive"}> {tab.label} </div>
+  </>);
+}
+
+
+
+
 
 function AnimationsPage() {
 
@@ -101,15 +107,43 @@ function AnimationsPage() {
       })
   }, []);
 
-  //------------------------------------------------------------------------------------------
+  
+  //---------------------------------------Navigation bar------------------------------------------------
+
+  const  [tabs, setTabs] = useState(
+    [
+      {
+        "id": 0,
+        "label":"Écran principal",
+      },
+      {
+        "id": 1,
+        "label":"Écran secondaire",
+      },
+      {
+        "id": 2,
+        "label":"Écran input",
+      },
+      {
+        "id": 3,
+        "label":"Dashboard",
+      }
+    ]
+  );
+
+  const [activeTab, setActiveTab] = useState(tabs[0]);  
+  
+  
 
   return (<>
     <div className="AnimationContainer">
       <div className="AnimationTable">
-        <p style={{display:"flex", flexDirection:"row"}}>Écran principal</p>
-        <p>Écran secondaire</p>
-        <p>Écran input</p>
-        <p>S</p>
+        {tabs.map((tab, index) => {
+          return(<>
+            <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs}/> 
+          </>)    
+        })}
+
       </div>
       {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
       <div className="AnimationSequenceTitles">

@@ -18,15 +18,26 @@
     
 .AnimationTable {
     display: flex;
-    flex-direction: row;
-    gap: 25%;
+    flex-flow: row nowrap;
+
+    justify-content: space-between;
+
+    padding: 0 15px ;
+}
+
+.AnimationTableActive {
+    color: white;
+}
+
+.AnimationTableInactive {
+    color: #000;
 }
     /* ----------------------------Animation Apercu Container----------------------------------------------------------------------------
         */
 
     .AnimationSequenceP {
         
-    }
+    }   
 
     .AnimationSequencePreviewCont {
         display: flex;
@@ -48,7 +59,7 @@
         grid-template-columns:30fr 1fr 3fr;
         grid-template-rows: 1fr;
 
-        padding-left: 3% ;
+        padding-left: 3%;
         
         gap: 10%;
     }    
