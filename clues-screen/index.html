@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎃 Coming Soon — Halloween</title>
+  <meta name="description" content="Une page Coming Soon dans le thème d'Halloween." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b11;
+      --fg:#f3f3f3;
+      --accent:#ff7a18;
+      --accent-2:#9f2b2b;
+      --glow: 0 0 18px rgba(255,122,24,.45), 0 0 42px rgba(255,122,24,.25);
+      --glass: rgba(255,255,255,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 700px at 10% 10%, #1a1122 0%, #0b0b11 45%, #07070b 100%);
+      color:var(--fg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      overflow:hidden;
+    }
+    .wrap{position:relative; min-height:100%; display:grid; place-items:center; padding:3rem}
+    /* Fog */
+    .fog, .fog:before, .fog:after{position:absolute; inset:-10%; pointer-events:none;}
+    .fog{background:radial-gradient(60% 30% at 50% -10%, rgba(255,255,255,.06), transparent 60%),
+               radial-gradient(50% 25% at 80% 10%, rgba(255,255,255,.04), transparent 60%),
+               radial-gradient(40% 20% at 20% 0%, rgba(255,255,255,.035), transparent 60%);
+         filter: blur(18px); animation:fogMove 30s linear infinite; opacity:.8}
+    .fog:before{content:""; background:radial-gradient(35% 20% at 20% 120%, rgba(255,255,255,.045), transparent 60%);
+         animation:fogMove 38s linear infinite reverse}
+    .fog:after{content:""; background:radial-gradient(40% 25% at 120% 80%, rgba(255,255,255,.035), transparent 60%);
+         animation:fogMove 46s linear infinite}
+    @keyframes fogMove{from{transform:translate3d(0,0,0)}to{transform:translate3d(-8%,0,0)}}
+
+    /* Stars */
+    .stars{position:absolute; inset:0; background-image:radial-gradient(#ffffff33 1px, transparent 1px);
+      background-size:3px 3px; opacity:.25; mix-blend-mode:screen}
+
+    /* Bats */
+    .bat{position:absolute; width:28px; height:14px; background:transparent; left:10%; top:20%; animation:fly1 16s linear infinite}
+    .bat::before,.bat::after{content:""; position:absolute; width:14px; height:14px; background:currentColor; color:#2b2b35; border-radius:14px 14px 0 0; top:0}
+    .bat::before{left:0; transform-origin:100% 100%; animation:wing 0.6s ease-in-out infinite}
+    .bat::after{right:0; transform-origin:0 100%; animation:wing 0.6s ease-in-out infinite alternate}
+    .bat.b2{left:70%; top:35%; transform:scale(.9); animation:fly2 18s linear infinite}
+    .bat.b3{left:40%; top:10%; transform:scale(1.2); animation:fly3 22s linear infinite}
+    @keyframes wing{0%,100%{transform:rotate(0)}50%{transform:rotate(35deg)}}
+    @keyframes fly1{0%{transform:translateX(0)}100%{transform:translateX(120vw)}}
+    @keyframes fly2{0%{transform:translateX(0)}100%{transform:translateX(-120vw)}}
+    @keyframes fly3{0%{transform:translateX(0) translateY(0)}50%{transform:translateX(30vw) translateY(3vh)}100%{transform:translateX(-90vw) translateY(-2vh)}}
+
+    /* Card */
+    .card{position:relative; padding:3rem 2.5rem; border-radius:22px; backdrop-filter: blur(8px);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .logo{display:flex; align-items:center; gap:.8rem; margin-bottom:1.2rem}
+    .logo i{font-style:normal; font-size:1.6rem}
+    .title{font-family:Creepster, system-ui; font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing:.02em; line-height:1; margin:0 0 .6rem}
+    .subtitle{color:#d7d7db; font-weight:300; font-size: clamp(1.05rem, 2.2vw, 1.2rem); margin:0 0 1.4rem}
+
+    .countdown{display:flex; gap:.6rem; align-items:stretch; margin:1.2rem 0 1.8rem}
+    .box{min-width:72px; text-align:center; padding:.8rem .6rem; border-radius:14px; background:var(--glass); border:1px solid rgba(255,255,255,.12)}
+    .num{font-family: Creepster, system-ui; font-size:2rem; text-shadow: var(--glow)}
+    .lbl{font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; opacity:.8}
+
+    .cta{display:inline-block; padding:0.9rem 1.2rem; border-radius:999px; background: linear-gradient(90deg,var(--accent), #ff3d00);
+      color:#0c0907; font-weight:700; text-decoration:none; box-shadow: var(--glow); transition: transform .15s ease, filter .25s ease}
+    .cta:hover{ transform: translateY(-2px); filter: brightness(1.1)}
+
+    footer{margin-top:1.8rem; font-size:.9rem; opacity:.8}
+
+    /* Candle */
+    .candle{position:absolute; right:-18px; bottom:-18px; width:42px; height:70px}
+    .wax{position:absolute; left:12px; bottom:0; width:18px; height:46px; background:#f6eee6; border-radius:4px}
+    .wick{position:absolute; left:20px; bottom:46px; width:2px; height:10px; background:#2d2d2d}
+    .flame{position:absolute; left:14px; bottom:52px; width:14px; height:18px; background: radial-gradient(40% 60% at 50% 60%, #ffd28a 0%, #ff9b00 60%, rgba(255,153,0,.8) 100%);
+      border-radius:50% 50% 50% 50%/60% 60% 40% 40%; box-shadow:0 0 18px #ff7a18, 0 0 34px rgba(255,153,0,.6);
+      transform-origin:50% 80%; animation:flicker .16s infinite alternate ease-in-out}
+    @keyframes flicker{from{transform:rotate(-2deg) scale(1)} to{transform:rotate(2deg) scale(1.06)}}
+
+    /* Responsive */
+    @media (max-width:520px){
+      .card{padding:2.2rem 1.6rem}
+      .box{min-width:62px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Atmosphere layers -->
+    <div class="stars" aria-hidden="true"></div>
+    <div class="fog" aria-hidden="true"></div>
+    <div class="bat" aria-hidden="true"></div>
+    <div class="bat b2" aria-hidden="true"></div>
+    <div class="bat b3" aria-hidden="true"></div>
+
+    <main class="card" role="main" aria-labelledby="title">
+      <div class="logo" aria-hidden="true">
+        <i>🕸️</i>
+        <span style="opacity:.8">Hallowinter Orif 2025.</span>
+      </div>
+      <h1 id="title" class="title">Coming Soon</h1>
+      <p class="subtitle">La page est en cours de création pour l'affichage des indices.</p>
+
+      <footer>
+        👻 <span aria-hidden="true">•</span> Bientôt disponible
+      </footer>
+
+      <!-- Candle decor -->
+      <div class="candle" aria-hidden="true">
+        <div class="wax"></div>
+        <div class="wick"></div>
+        <div class="flame"></div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
