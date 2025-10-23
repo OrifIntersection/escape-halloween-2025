@@ -1,12 +1,13 @@
-import DashboardHeaderTitle from "./title"
+// Sous-composants de Header
+import HeaderTitle from "./title";
 
-function DashboardHeader() {
-
+// Composant principal
+function Header({ storyline }) {
   return (
-    <header>
-        <DashboardHeaderTitle />
+    <header className="main-header">
+      <HeaderTitle>{storyline.title}</HeaderTitle>
     </header>
-  )
+  );
 }
 
-export default DashboardHeader
+export default Header;

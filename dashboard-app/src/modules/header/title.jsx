@@ -1,10 +1,6 @@
-function DashboardHeaderTitle() {
-
-  return (
-    <>
-      [Le titre principal du dashboard]  
-    </>
-  )
+// Composant principal
+function Title({ children }) {
+  return <h1>Dashboard | {children}</h1>;
 }
 
-export default DashboardHeaderTitle
+export default Title;

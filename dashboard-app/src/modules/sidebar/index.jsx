@@ -1,12 +1,13 @@
-import DashboardSidebarStoryline from "./storyline"
+// Sous-composant de Sidebar
+import SidebarStoryline from "./storyline";
 
-function DashboardSidebar() {
-
+// Composant principal
+function Sidebar(props) {
   return (
     <aside>
-        <DashboardSidebarStoryline />
+      <SidebarStoryline {...props} />
     </aside>
-  )
+  );
 }
 
-export default DashboardSidebar
+export default Sidebar;

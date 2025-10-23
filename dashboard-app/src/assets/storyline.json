@@ -14,7 +14,8 @@
                 "name": "Début de l'histoire",
                 "durationInSeconds": 245
             }],
-            "clues": []
+            "clues": [],
+            "answers": []
         },
         {
             "id":"didacticiel",
