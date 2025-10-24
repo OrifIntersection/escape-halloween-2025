@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import image from '../../assets/images/sequences/image.png';
 import "./style.css";
+
 //--------------------------------------------------------------------------------------------------------------------------------ECRAN PRINCIPAL -----------
 function SequenceItem({ sequence, setActiveSequence }) {
   // Fonction du click sur la séquence
@@ -65,10 +66,6 @@ function AnimationTable({ tab, tabs, activeTab, index, setActiveTab }) {
     <div onClick={handleClick} className={(tab.id === activeTab.id) ? "AnimationTableActive" : "AnimationTableInactive"}> {tab.label} </div>
   </>);
 }
-
-
-
-
 
 function AnimationsPage() {
  function AnimationScreen() {
@@ -159,9 +156,14 @@ function AnimationsPage() {
                 <AnimationTable tab={tab} index={index} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
               </>)
             })}
-
           </div>
+    {
+    //-----------------------------------
+    }
           {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
+   {
+    //-----------------------------------
+   }
           <div className="AnimationSequenceTitles">
             <p>Séquences :</p>
             <p>Position</p>

@@ -103,7 +103,6 @@ function DashboardPage() {
         })
     }, []);
   
-  
     //----------------------------------Navigation bar-----------------------------------------
   
     const [tabs, setTabs] = useState(
@@ -127,7 +126,7 @@ function DashboardPage() {
       ]
     );
   
-    const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
   
   // VIRER SES ECRANS SUR LES AUTRES FICHIER PAGE.JSX
   
@@ -143,7 +142,6 @@ function DashboardPage() {
     case 1:
       element = <AnswersPage />
       break;
-
     case 2:
       element = <CluesPage />
       break;

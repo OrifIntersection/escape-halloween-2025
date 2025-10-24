@@ -15,20 +15,18 @@ Background ----------------------------------------------------------------
     background-size:cover;
 }
 
-#backofthebackground{
-    
-}
+
 
 @media (min-width:3000px) {
-    #backofthebackground{   
+    #backofthebackground{ 
         padding-left: 15%;   
         padding-right: 15%;   
         background-image:url(../../assets/images/backgrounds/background-secondary.png);
-    }   
+    }
 }
 
 @media (max-width:3000px) {
-    #backofthebackground{
+    #backofthebackground{ 
         background-image:url(../../assets/images/backgrounds/background-secondary.png);
     }
 }
