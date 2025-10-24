@@ -36,6 +36,7 @@ function ActiveTab({
 }) {
   return (
     <section>
+      
       {activeTab.id === "animations" && (
         <AnimationsTab
           animations={findAllAnimations(storyline)}

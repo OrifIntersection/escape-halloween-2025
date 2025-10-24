@@ -14,6 +14,8 @@ import storyline from "./assets/storyline.json";
 
 // Composant principal
 function Dashboard() {
+
+  // Comment
   var [game, setGame] = useState({
     playingAnimation: null,
     activatedClues: [],
