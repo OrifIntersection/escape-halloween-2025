@@ -1,0 +1,19 @@
+{
+  "name": "escape-2025",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:animations": "npm run dev --prefix animations-screen",
+    "dev:clues": "npm run dev --prefix clues-screen",
+    "dev:answers": "npm run dev --prefix answers-screen",
+    "dev:dashboard-simple": "npm run dev --prefix dashboard-simple",
+    "dev:dashboard-app": "npm run dev --prefix dashboard-app",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:animations\" \"npm run dev:clues\" \"npm run dev:answers\" \"npm run dev:dashboard-simple\" \"npm run dev:dashboard-app\"",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix animations-screen && npm install --prefix clues-screen && npm install --prefix answers-screen && npm install --prefix dashboard-app && npm install --prefix dashboard-simple"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
