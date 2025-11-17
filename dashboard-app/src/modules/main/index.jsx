@@ -1,31 +1,52 @@
-// Librairie externe
+//import React
 import { useState } from "react";
 
-// Sous-composants de Main
-import MainNav from "./nav";
-import MainActiveTab from "./active-tab";
+//import de composants
+import DashboardMainNav from "./nav"
+import DashboardMainActiveTab from "./active-tab"
+import DashboardMainAnimationsTab from "./tabs/animations"
+import DashboardMainAnswersTab from "./tabs/answers"
+import DashboardMainCluesTab from "./tabs/clues"
 
-// Données statiques
-const TAB_LIST = [
-  { id: "animations", name: "Animations" },
-  { id: "clues", name: "Indices" },
-  { id: "answers", name: "Réponses" },
-];
+//import de styles
+import "./main.css"
 
-// Composant principal
-function Main(props) {
-  const [activeTab, setActiveTab] = useState(TAB_LIST[0]);
-  return (
-    <main>
-      <h2>Gestion du jeu</h2>
-      <MainNav
-        tabs={TAB_LIST}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
-      <MainActiveTab activeTab={activeTab} {...props} />
-    </main>
-  );
+//import d'assets
+
+
+function DashboardMain({activeTab, setActiveTab, tabs}) {
+  const [activeSequence, setActiveSequence] = useState(null);
+
+  function Rest({activeTab, setActiveTab, activeSequence, setActiveSequence, tabs}) {
+    return(<>
+      <DashboardMainNav activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
+      <DashboardMainActiveTab activeTab={activeTab} activeSequence={activeSequence} setActiveSequence={setActiveSequence} />
+    </>)
+  }
+  
+  switch (activeTab.id){
+    case 0:
+      return(<>
+        <main className="MainElementTab">
+          <Rest activeTab={activeTab} setActiveTab={setActiveTab} activeSequence={activeSequence} setActiveSequence={setActiveSequence} tabs={tabs}/>
+          <DashboardMainAnimationsTab setActiveSequence={setActiveSequence} />
+        </main>
+      </>)
+    case 1:
+      return(<>
+        <main className="MainElementTab">
+          <Rest activeTab={activeTab} setActiveTab={setActiveTab} activeSequence={activeSequence} setActiveSequence={setActiveSequence} tabs={tabs}/>
+          <DashboardMainCluesTab activeSequence={activeSequence} setActiveSequence={setActiveSequence} />
+        </main>
+      </>)
+    case 2:
+      return(<>
+        <main className="MainElementTab">
+          <Rest activeTab={activeTab} setActiveTab={setActiveTab} activeSequence={activeSequence} setActiveSequence={setActiveSequence} tabs={tabs}/>
+          <DashboardMainAnswersTab activeSequence={activeSequence} setActiveSequence={setActiveSequence} />
+        </main>
+      </>)
+  }
 }
 
-export default Main;
+export default DashboardMain

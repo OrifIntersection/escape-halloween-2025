@@ -1,60 +1,47 @@
-// Librairie externe
-import { useState } from "react";
+// import React
+import {useState} from "react";
 
-// Sous-composants de Dashboard
-import DashboardHeader from "./modules/header";
-import DashboardMain from "./modules/main";
-import DashboardSidebar from "./modules/sidebar";
+// import components
+import DashboardHeader from './modules/header'
+import DashboardMain from './modules/main'
+import DashboardSidebar from './modules/sidebar'
 
-// Styles
-import "./Dashboard.css";
+//import styles
+import './Dashboard.css'
 
-// Données statiques
-import storyline from "./assets/storyline.json";
-
-// Composant principal
 function Dashboard() {
-
-  // Comment
-  var [game, setGame] = useState({
-    playingAnimation: null,
-    activatedClues: [],
-    successfulAnswers: [],
-  });
-
-  const playAnimation = (animationToPlay) => {
-    setGame({ ...game, playingAnimation: animationToPlay });
-  };
-
-  const activeClue = (clueToActive) => {
-    setGame({
-      ...game,
-      activatedClues: [...game.activatedClues, clueToActive],
-    });
-  };
-
-  const validAnswer = (answerToValid) => {
-    setGame({
-      ...game,
-      successfulAnswers: [...game.successfulAnswers, answerToValid],
-    });
-  };
+  const [tabs, setTabs] = useState(
+    [
+      {
+        "id": 0,
+        "label": "Écran principal",
+      },
+      {
+        "id": 1,
+        "label": "Écran indices",
+      },
+      {
+        "id": 2,
+        "label": "Écran input",
+      },
+      {
+        "id": 3,
+        "label": "Dashboard",
+      }
+    ]
+  );
+  
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
     <div className="dashboard">
-      <DashboardHeader storyline={storyline} />
+      <DashboardHeader />
       <div className="wrapper">
-        <DashboardSidebar storyline={storyline} game={game} />
-        <DashboardMain
-          storyline={storyline}
-          game={game}
-          playAnimation={playAnimation}
-          activeClue={activeClue}
-          validAnswer={validAnswer}
-        />
+        <DashboardSidebar activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <DashboardMain activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs}/>
       </div>
     </div>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard

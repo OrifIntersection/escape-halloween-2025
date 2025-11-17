@@ -1,0 +1,79 @@
+/*------------------------------------------------------
+                        Animation
+-------------------------------------------------------*/
+/*
+    DashboardMainAnimationsTab
+*/
+
+.AnimationWrapper {
+    height: calc(100% - 320px - 32px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.AnimationHeader {
+    display: flex;
+    padding: 24px 24px 24px 24px;
+    box-sizing: border-box;
+}
+
+.AnimationList {
+    background-color: #161c31;
+    border-radius: 23px;
+
+    width: 100%;
+    height: 100%;
+    flex: 1;
+
+    padding: 24px 24px 24px 24px;
+
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.AnimationItem {
+    display: flex;
+    padding: 12px 0;
+    align-items: center;
+
+    border-bottom: rgba(255, 255, 255, 0.3) 1px solid
+}
+
+.AnimationHeaderDuration,
+.AnimationItemDuration {
+    width: 80px;
+    text-align: left;
+}
+
+.AnimationHeaderPosition,
+.AnimationItemPosition {
+    width: 80px;
+    text-align: left;
+}
+
+.AnimationHeaderDescription,
+.AnimationItemDescription {
+    width: 100%;
+    flex: 1;
+    text-align: left;
+}
+
+.AnimationItemDescription {
+    display: flex;
+}
+
+.AnimationItemDescriptionPreview {}
+
+.AnimationDescriptionInfos {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 12px;
+
+}
+
+/*------------------------------------------------------
+                        ANSWERS
+-------------------------------------------------------*/

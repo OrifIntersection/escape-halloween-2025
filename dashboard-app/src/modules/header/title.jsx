@@ -1,6 +1,10 @@
-// Composant principal
-function Title({ children }) {
-  return <h1>Dashboard | {children}</h1>;
+function DashboardHeaderTitle() {
+
+  return (
+    <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
+      TABLEAU DE BORD HALLOWEEN 2025
+    </div>
+  )
 }
 
-export default Title;
+export default DashboardHeaderTitle

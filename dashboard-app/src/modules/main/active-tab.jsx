@@ -1,65 +1,31 @@
-// Sous-composants de ActiveTab
-import AnimationsTab from "./tabs/animations";
-import AnswersTab from "./tabs/answers";
-import CluesTab from "./tabs/clues";
+//import React 
+import { useState } from "react";
 
-// Fonctions "Helpers"
-function findAllAnimations(storyline) {
-  return storyline.sections.reduce(
-    (animations, aSection) => animations.concat(aSection.animations),
-    []
-  );
-}
-
-function findAllClues(storyline) {
-  return storyline.sections.reduce(
-    (clues, aSection) => clues.concat(aSection.clues),
-    []
-  );
-}
-
-function findAllAnswers(storyline) {
-  return storyline.sections.reduce(
-    (answers, aSection) => answers.concat(aSection.answers),
-    []
-  );
-}
-
-// Composant principal
-function ActiveTab({
-  activeTab,
-  storyline,
-  game,
-  playAnimation,
-  activeClue,
-  validAnswer,
-}) {
+function NoActiveSequencePreview() {
   return (
-    <section>
-      
-      {activeTab.id === "animations" && (
-        <AnimationsTab
-          animations={findAllAnimations(storyline)}
-          playingAnimation={game.playingAnimation}
-          playAnimation={playAnimation}
-        />
-      )}
-      {activeTab.id === "clues" && (
-        <CluesTab
-          clues={findAllClues(storyline)}
-          activatedClues={game.activatedClues}
-          activeClue={activeClue}
-        />
-      )}
-      {activeTab.id === "answers" && (
-        <AnswersTab
-          answers={findAllAnswers(storyline)}
-          successfulAnswers={game.successfulAnswers}
-          validAnswer={validAnswer}
-        />
-      )}
-    </section>
+    <div style={{}} className="AnimationSequencePreviewCont">
+      <p className="AnimationSequenceP">
+        Désactivé
+      </p>
+    </div>
   );
 }
 
-export default ActiveTab;
+function ActiveSequencePreview({sequence}) {
+  return (<>
+    <div style={{ overflow: "hidden" }} className="AnimationSequencePreviewCont">
+      <video style={{ objectFit: "contain", width: "100%", height: "100%" }} controls={true} src={sequence.file} type="video/mp4" autoPlay muted playsInline />
+    </div>
+  </>);
+}
+
+function DashboardMainActiveTab({activeSequence}) {
+  
+  return (
+    <section className="MainElementActive">
+        {(activeSequence) ? <ActiveSequencePreview sequence={activeSequence} /> : <NoActiveSequencePreview />}
+    </section>
+  )
+}
+
+export default DashboardMainActiveTab

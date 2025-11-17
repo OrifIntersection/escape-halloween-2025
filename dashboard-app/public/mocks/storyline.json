@@ -1,0 +1,159 @@
+{
+    "title": "Hallowinter",
+    "durationInMinutes": 60,
+    "sections":[
+        {
+            "id":"introduction",
+            "name": "Introduction",
+            "description": "Introduction à l’histoire de l’escape game",
+            "type": "Animation uniquement",
+            "difficulty": "Histoire",
+            "durationInMinutes": 5,
+            "animations": [{
+                "id": "animation-1",
+                "name": "Début de l'histoire",
+                "position": 1,
+                "durationInSeconds": 245
+            }],
+            "clues": []
+        },
+        {
+            "id":"didacticiel",
+            "name": "Didacticiel",
+            "description": "Une première action à faire par les participants pour comprendre la mécanique du jeu",
+            "type": "Démonstrateur",
+            "difficulty": "Facile",
+            "durationInMinutes": 5,
+            "animations": [{
+                "id": "animation-2",
+                "name": "Début du tutoriel",
+                "durationInSeconds": 55,
+                "position": 1,
+                "needAnswer": null
+            },{
+                "id": "animation-3",
+                "name": "Tutoriel après indice",
+                "durationInSeconds": 214,
+                "position": 2,
+                "needAnswer": 1
+            },{
+                "id": "animation-4",
+                "name": "Succès du tutoriel",
+                "durationInSeconds": 5455,
+                "position": 3,
+                "needAnswer": null
+
+            }],
+            "clues": [{
+                "id": 1,
+                "content": "keys",
+                "displayAfter": 2
+            }],
+            "answers": [{
+                "id": 1,
+                "name": "Enigme 1",
+                "solution": "keys"
+            }]
+        },
+        {
+            "id":"first-step",
+            "name": "Première énigme",
+            "description": "Une première énigme simple à trouver pour mettre en confiance les participants",
+            "type": "Énigmes logiques / de réflexion",
+            "difficulty": "Facile",
+            "durationInMinutes": 5,
+            "animations": [{
+                "id": "animation-5",
+                "name": "Contexte de la première énigme",
+                "durationInSeconds": 184,
+                "needAnswer": null
+            }],
+            "clues": [{
+                "id": 2,
+                "content": "Dans le livre",
+                "displayAfter": 15
+            }],
+            "answers": [{
+                "id": 2,
+                "name": "Enigme 2",
+                "solution": 182
+            }]
+        },
+        {
+            "id":"second-step",
+            "name": "Seconde énigme",
+            "description": "Une seconde énigme mid-level pour monter en puissance",
+            "type": "Observation et déduction / Manipulations et fouilles",
+            "difficulty": "Moyen",
+            "durationInMinutes": 10,
+           "animations": [{
+                "id": "animation-6",
+                "name": "Contexte de la deuxième énigme",
+                "durationInSeconds": 201,
+                "needAnswer": 2
+            }],
+            "clues": [{
+                "id": 3,
+                "content": "Sur la table !",
+                "displayAfter": 25
+            }],
+            "answers": [{
+                "id": 3,
+                "name": "Enigme 3",
+                "solution": 125782
+            }]
+        },
+        {
+            "id":"third-step",
+            "name": "Troisième énigme",
+            "description": "Une dernière énigme difficile pour challenger les participants",
+            "type": "Codes et cryptographie / Coopération et communication",
+            "difficulty": "Difficile",
+            "durationInMinutes": "15",
+             "animations": [{
+                "id": "animation-7",
+                "name": "Contexte de la dernière énigme",
+                "durationInSeconds": 145,
+                "needAnswer": 3
+            }, {
+                "id": "animation-8",
+                "name": "Deuxième partie de l'énigme",
+                "durationInSeconds": 121,
+                "needAnswer": 4
+            }],
+            "clues": [{
+                "id": 4,
+                "content": "Compter les 'i'",
+                "displayAfter": 40
+            },{
+                "id": 5,
+                "content": "Vous ne pourrez pas le faire seul",
+                "displayAfter": 50
+            }],
+            "answers": [{
+                "id": 4,
+                "name": "Enigme 4",
+                "solution": 87
+            }, {
+                "id": 5,
+                "name": "Enigme 5",
+                "solution": "zombies"
+            }]
+        },
+        {
+            "id":"conclusion",
+            "name": "Conclusion",
+            "description": "Le dénouement de l'histoire",
+            "type": "Animation uniquement",
+            "difficulty": "Histoire",
+            "durationInMinutes": "5",
+            "animations": [{
+                "id": "animation-9",
+                "name": "Fin de l'histoire",
+                "durationInSeconds": 245
+            }],
+            "clues": [],
+            "answers": []
+        }
+    ]
+}

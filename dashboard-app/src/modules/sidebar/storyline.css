@@ -1,0 +1,63 @@
+.StoryLineTitle {
+  margin: 20px;
+}
+
+.StorylineLayoutContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  
+  width: 100%;
+ 
+  box-sizing: border-box;
+}
+
+.StorylineLayout {
+  display: flex;
+  flex-flow: column nowrap;
+
+
+  color: aquamarine;
+}
+
+.StoryLineLayoutBox {
+  background-color: #161c31;
+  border-radius: 14px;
+  
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0px;
+
+  box-sizing: border-box;
+}
+
+.StoryLineContent {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 5px 0px;
+  margin-top: 20px;
+}
+
+
+/*
+Element in the StorylineLayout 
+*/
+.StoryLineName {
+
+
+}
+
+.StoryLineDescription {
+
+}
+.StoryLineContentPosition {
+  
+}
+
+.StoryLineContentName {
+  
+}

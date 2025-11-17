@@ -1,42 +1,71 @@
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    color: white;
 }
 
-.dashboard > header {
-  display: flex;
-  width: 100%;
-  height: 80px;
-  border-bottom: solid 1px #eee;
-  align-items: center;
-  padding: 12px;
-  box-sizing: border-box;
+.dashboard{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    background-image: url(../public/mocks/images/backgrounds/background-main.png);
+    background-size: cover;
 }
 
-.dashboard > .wrapper {
-  display: flex;
-  width: 100%;
-  height: calc(100% - 80px);
-  flex: 1;
+.dashboard > header{
+    display:flex;
+    width:100%;
+    height:80px;
+    border-bottom: solid 1px #eee;
+    align-items: center;
+}
+
+.dashboard > .wrapper{
+    display:flex;
+    width:100%;
+    height:calc(100% - 80px);
+    flex:1;
 }
 
 aside {
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  height: 100%;
-  border-right: solid 1px #eee;
+    display: flex;
+    
+    flex-flow: column nowrap;
+    align-items: center;
+    flex: 0 0 25%; 
+
+    width: 100%; 
+    height: 97%;
+
+    margin: 0 20px 0 4%;
+    padding: 0 20px;
+
+    font-size:small;
+    
+    box-sizing: border-box;
+    border-radius: 58px;
+    background-color: #0e111e;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
+    transition: flex-basis 0.5s ease-in-out;
+
+    overflow: scroll;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  flex: 1;
-  overflow:auto;
+.noaside {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%; 
+}
+
+aside:hover {
+    flex-basis: 40%; 
+}
+
+
+main{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
 }

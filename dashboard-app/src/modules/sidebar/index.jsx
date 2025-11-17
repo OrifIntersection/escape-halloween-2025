@@ -1,13 +1,14 @@
-// Sous-composant de Sidebar
-import SidebarStoryline from "./storyline";
+// import React
+import { useState } from "react"
+// import components
+import DashboardSidebarStoryline from "./storyline"
 
-// Composant principal
-function Sidebar(props) {
+function DashboardSidebar({activeTab, setActiveTab}) {
   return (
-    <aside>
-      <SidebarStoryline {...props} />
-    </aside>
-  );
+    <aside className="StoryLineContainer">
+        <DashboardSidebarStoryline activeTab={activeTab} setActiveTab={setActiveTab}/>
+    </aside>                
+  )
 }
 
-export default Sidebar;
+export default DashboardSidebar

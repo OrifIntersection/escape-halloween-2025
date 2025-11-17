@@ -1,39 +1,24 @@
-// Sous-composants de Nav
-function NavLink({ tab, activeTab, setActiveTab }) {
-  const handleClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveTab(tab);
-  };
+function AnimationTable({ tab, tabs, activeTab, setActiveTab, index }) {
+  function handleClick(e) {
+    setActiveTab(tabs[index])
+  }
 
-  return (
-    <>
-      <button
-        className={activeTab.id === tab.id ? "active" : ""}
-        onClick={handleClick}
-        disabled={activeTab.id === tab.id}
-      >
-        {tab.name}
-      </button>
-      <span>&nbsp;</span>
-    </>
-  );
+  return (<>
+    <div onClick={handleClick} className={(tab.id === activeTab?.id) ? "AnimationTableActive" : "AnimationTableInactive"}> {tab?.label} </div>
+  </>);
 }
 
-// Composant principal
-function Nav({ tabs, activeTab, setActiveTab }) {
+
+function DashboardMainNav({tabs, activeTab,setActiveTab}) {
   return (
-    <nav>
-      {tabs.map((aTab) => (
-        <NavLink
-          key={aTab.id}
-          tab={aTab}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      ))}
-    </nav>
-  );
+    <section className="AnimationTable">
+        {tabs.map((tab, index) => {
+          return(<>
+            <AnimationTable key={index} index={index} tab={tab} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
+          </>)})}
+    </section>
+  )
+
 }
 
-export default Nav;
+export default DashboardMainNav
