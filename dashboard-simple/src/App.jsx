@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { socket } from "./socket";
 
-const GAME_ID = "42105597-aa3c-4a44-8a56-f7e679615cf6"; 
+const GAME_ID = "42105597-aa3c-4a44-8a56-f7e679615cf6";
 
 function App() {
   const [connected, setConnected] = useState(socket.connected);

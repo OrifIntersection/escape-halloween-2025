@@ -1,5 +1,5 @@
 //import React 
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 //import components
 
 //import assets
@@ -9,7 +9,7 @@ import "./style.css";
 
 import image from "../../../../public/mocks/images/sequences/image.png"
 function SequenceItem2({ sequence, setActiveSequence }) {
-  
+
   function handleClick() {
     setActiveSequence(sequence);
   }
@@ -37,7 +37,7 @@ function SequenceItem2({ sequence, setActiveSequence }) {
   </>)
 }
 
-function DashboardMainAnswersTab({setActiveSequence}) {
+function DashboardMainAnswersTab({ setActiveSequence }) {
   const [sequences, setSequences] = useState(null);
   useEffect(() => {
     fetch("/mocks/sequence_animation.json")
@@ -48,27 +48,18 @@ function DashboardMainAnswersTab({setActiveSequence}) {
         return response.json();
       })
       .then(data => {
-        console.log("Answers data succes ", data);
         setSequences(data)
       })
       .catch(error => {
         console.log("Catch Error : ", error);
-      })  
+      })
   }, []);
 
   return (
-    <>
-      <div className="AnimationTitles">
-        <p>Séquences :</p>
-        <p>Position</p>
-        <p>Durée</p>
-      </div>
-      <div className="AnimationList">
-        {(sequences) ? <>
-          {sequences.map((sequenceItem) => <SequenceItem2 sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
-        </> : <> Loading sequences</>}
-      </div>
-    </>
+    <div className="answersContainer">
+      <h2>Retour de l'utilisateur : </h2>
+      <h1>Input de l'utilisateur</h1>
+    </div>
   )
 }
 

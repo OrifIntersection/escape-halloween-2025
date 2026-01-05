@@ -9,13 +9,10 @@ function AnimationTable({ tab, tabs, activeTab, setActiveTab, index }) {
 }
 
 
-function DashboardMainNav({tabs, activeTab,setActiveTab}) {
+function DashboardMainNav({ tabs, activeTab, setActiveTab }) {
   return (
     <section className="AnimationTable">
-        {tabs.map((tab, index) => {
-          return(<>
-            <AnimationTable key={index} index={index} tab={tab} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
-          </>)})}
+      {tabs.map((tab, index) => <AnimationTable key={index} index={index} tab={tab} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />)}
     </section>
   )
 

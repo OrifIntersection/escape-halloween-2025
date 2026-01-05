@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
       }
 
       const storyline = await getStoryline(gameId);
-      
+
       if (typeof callback === "function") {
         return callback({ ok: true, storyline });
       }

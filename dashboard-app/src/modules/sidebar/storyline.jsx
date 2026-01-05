@@ -57,7 +57,6 @@ function DashboardSidebarStoryline({ isHovered }) {
       .then(res => res.json())
       .then(data => {
         setStoryLine(data)
-        console.log("Storyline fetch succes");
       })
       .catch(error => {
         console.log(error("Catch Error : ", error))

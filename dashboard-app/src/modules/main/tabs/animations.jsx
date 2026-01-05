@@ -1,5 +1,5 @@
 //import React
-import { useState, useEffect } from "react";
+import { useState, useEffect, use, Fragment } from "react";
 
 //import components
 
@@ -10,8 +10,8 @@ import image from "/public/mocks/images/sequences/image.png";
 import "./style.css";
 
 function SequenceItem1({ sequence, setActiveSequence }) {
+  console.log(sequence, "sequence final")
   // Fonction du click sur la séquence
-
   function handleClick() {
     setActiveSequence(sequence);
   }
@@ -24,48 +24,43 @@ function SequenceItem1({ sequence, setActiveSequence }) {
         </div>
         <div className="AnimationDescriptionInfos">
           <div className="AnimationDescriptionInfosTitle">
-            {sequence.title}
+            {sequence.name}
           </div>
           <div className="AnimationDescriptionInfosDescription">
-            {sequence.description}
+            {sequence.id}
           </div>
         </div>
       </div>
-      <div className="AnimationItemPosition">{sequence.order}</div>
-      <div className="AnimationItemDuration">{sequence.duration}</div>
+      <div className="AnimationItemDuration">{sequence.durationInSeconds} sec.</div>
     </div>
   </>)
 }
 
-function DashboardMainAnimationsTab({setActiveSequence}) {
+function DashboardMainAnimationsTab({ setActiveSequence }) {
   const [sequences, setSequences] = useState(null);
+
   useEffect(() => {
-    fetch("/mocks/sequence_animation.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Error");
-        }
-        return response.json();
-      })
+    fetch("/mocks/storyline.json")
+      .then(res => res.json())
       .then(data => {
-        console.log("Animation Fetch succes", data);
         setSequences(data)
       })
       .catch(error => {
-        console.log("Catch Error : ", error);
+        console.log("Catch Error : ", error)
       })
-  }, []);
+  }, [])
 
   return (
     <div className="AnimationWrapper">
       <div className="AnimationHeader">
         <div className="AnimationHeaderDescription">Séquences :</div>
-        <div className="AnimationHeaderPosition">Position</div>
-        <div className="AnimationHeaderDuration">Durée</div>
+        <div className="AnimationHeaderDuration">Durée :</div>
       </div>
       <div className="AnimationList">
         {(sequences) ? <>
-          {sequences.map((sequenceItem, index) => <SequenceItem1 key={index} sequence={sequenceItem} setActiveSequence={setActiveSequence} />)}
+          {sequences?.sections.map((sequenceItem) => <Fragment key={sequenceItem.id}>{
+            sequenceItem.animations.map((sequenceAnimation, index) => <SequenceItem1 key={index} sequence={sequenceAnimation} setActiveSequence={setActiveSequence} />)
+          }</Fragment>)}
         </> : <>Loading sequences</>}
       </div>
     </div>
