@@ -56,11 +56,10 @@ function DashboardMainCluesTab({ setActiveSequence }) {
       <div className="AnimationList">
         {(sequences) ? <>
           {sequences?.sections.map((sequenceItem) => <Fragment key={sequenceItem.id}> {
-            sequenceItem.clues.map((sequenceClues, index) => <SequenceItem3 key={index} sequence={sequenceClues} setActiveSequence={setActiveSequence} />)
-          }
+            sequenceItem.clues.map((sequenceClues, index) => <SequenceItem3 key={index} sequence={sequenceClues} setActiveSequence={setActiveSequence} />)}
           </Fragment>
           )}
-        </> : <>Loading sequences</>}
+        </> : <><h2>Loading sequences...</h2></>}
       </div>
     </div>
   )

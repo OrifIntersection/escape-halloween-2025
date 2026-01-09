@@ -10,7 +10,6 @@ import image from "/public/mocks/images/sequences/image.png";
 import "./style.css";
 
 function SequenceItem1({ sequence, setActiveSequence }) {
-  console.log(sequence, "sequence final")
   // Fonction du click sur la séquence
   function handleClick() {
     setActiveSequence(sequence);
@@ -61,7 +60,7 @@ function DashboardMainAnimationsTab({ setActiveSequence }) {
           {sequences?.sections.map((sequenceItem) => <Fragment key={sequenceItem.id}>{
             sequenceItem.animations.map((sequenceAnimation, index) => <SequenceItem1 key={index} sequence={sequenceAnimation} setActiveSequence={setActiveSequence} />)
           }</Fragment>)}
-        </> : <>Loading sequences</>}
+        </> : <><h2>Loading sequences...</h2></>}
       </div>
     </div>
   )

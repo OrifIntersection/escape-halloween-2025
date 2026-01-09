@@ -3,44 +3,30 @@ import { useState, useEffect } from "react";
 //import components
 
 //import assets
+import image from "../../../../public/mocks/images/sequences/image.png"
 
 //import styles 
 import "./style.css";
 
-import image from "../../../../public/mocks/images/sequences/image.png"
-function SequenceItem2({ sequence, setActiveSequence }) {
-
-  function handleClick() {
-    setActiveSequence(sequence);
-  }
-
-  return (<><div className="AnimationItem" onClick={handleClick}>
-
-    <div className="AnimationItemDescription">
-      <div className="AnimationItemDescriptionPreview">
-        <img alt="aperçu de séquence" src={image} style={{ height: "100%", width: "150px" }} />
+function InputHistory({ input }) {
+  return (<>
+    <div className="InputHistory">
+      <div className="InputHistoryPosition">
+        {input.answersId}
       </div>
-
-      <div className="AnimationDescriptionInfos">
-        <div className="AnimationDescriptionInfosTitle">
-          {sequence.title}
-        </div>
-        <div className="AnimationDescriptionInfosDescription">
-          {sequence.description}
-        </div>
+      <div className="InputHistoryContent">
+        {input.content}
       </div>
     </div>
-    <div className="AnimationItemPosition">{sequence.order}</div>
-    <div className="AnimationItemDuration">{sequence.duration}</div>
-
-  </div>
+    <hr className="hrInput"/>
   </>)
 }
 
 function DashboardMainAnswersTab({ setActiveSequence }) {
-  const [sequences, setSequences] = useState(null);
+  const [input, setInput] = useState(null);
+
   useEffect(() => {
-    fetch("/mocks/sequence_animation.json")
+    fetch("/mocks/input.json")
       .then(response => {
         if (!response.ok) {
           throw new Error("Error");
@@ -48,7 +34,7 @@ function DashboardMainAnswersTab({ setActiveSequence }) {
         return response.json();
       })
       .then(data => {
-        setSequences(data)
+        setInput(data)
       })
       .catch(error => {
         console.log("Catch Error : ", error);
@@ -56,9 +42,18 @@ function DashboardMainAnswersTab({ setActiveSequence }) {
   }, []);
 
   return (
-    <div className="answersContainer">
-      <h2>Retour de l'utilisateur : </h2>
-      <h1>Input de l'utilisateur</h1>
+    <div className="AnswersContainer">
+      <div className="AnswersUserResponse">
+        <h2>Retour de l'utilisateur : </h2>
+        <h1>SAS</h1>
+      </div>
+      <div className="AnswersHistory">
+        {
+          (input) ? <>
+            {input.inputs.map((inputHistory, index) => <InputHistory input={inputHistory} key={index} />)}
+          </> : <> <h2>Loading answers...</h2></>
+        }
+      </div>
     </div>
   )
 }

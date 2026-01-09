@@ -24,10 +24,6 @@ function Dashboard() {
         "id": 2,
         "label": "Écran input",
       },
-      {
-        "id": 3,
-        "label": "Dashboard",
-      }
     ]
   );
   

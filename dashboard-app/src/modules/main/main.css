@@ -1,21 +1,21 @@
 .MainElementTab {
     display: flex;
     justify-content: flex-start;
-
     width: 100%;
     height: 97%;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-    /*
-    border: 2px dotted black; 
-    */
-
-    border-radius: 58px;
     margin: 0px 8% 0 8%;
-    padding: 30px;
+    padding: 30px;    
+    border-radius: 58px;
     background-color: #0e111e;
     box-sizing: border-box;
+}
 
-    overflow: auto;
+.MainElementTab::-webkit-scrollbar {
+    display: none;
 }
 
 .MainElementActive{
@@ -63,7 +63,7 @@
     
     color: #fffefe;
     
-    transform: scale(1.2);
+    transform: scale(1.1);
     animation: transform ;
 }
 

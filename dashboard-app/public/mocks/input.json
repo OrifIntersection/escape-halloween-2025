@@ -1,0 +1,47 @@
+{
+    "title": "Inputs",
+    "inputs": [
+        {
+            "id": "udi8DJ",
+            "answersId": 1,
+            "sectionsId": "first-step",
+            "response": false,
+            "content": "Livre"
+        },
+        {
+            "id": "Pdi23J",
+            "answersId": 1,
+            "sectionsId": "first-step",
+            "response": true,
+            "content": "Voiture"
+        },
+        {
+            "id": "12Djd2",
+            "answersId": 2,
+            "sectionsId": "second-step",
+            "response": false,
+            "content": "Arbre"
+        },
+        {
+            "id": "8r2JpS",
+            "answersId": 2,
+            "sectionsId": "second-step",
+            "response": true,
+            "content": "Chat"
+        },
+        {
+            "id": "9Hf43s",
+            "answersId": 3,
+            "sectionsId": "third-step",
+            "response": false,
+            "content": "9411"
+        },
+        {
+            "id": "45Hi9J",
+            "answersId": 3,
+            "sectionsId": "third-step",
+            "response": true,
+            "content": "9311"
+        }
+    ]
+}
