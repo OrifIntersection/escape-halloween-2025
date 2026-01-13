@@ -24,6 +24,7 @@ function InputHistory({ input }) {
 
 function DashboardMainAnswersTab({ setActiveSequence }) {
   const [input, setInput] = useState(null);
+  const [resp, setResp] = useState("Salutt")
 
   useEffect(() => {
     fetch("/mocks/input.json")
@@ -45,7 +46,7 @@ function DashboardMainAnswersTab({ setActiveSequence }) {
     <div className="AnswersContainer">
       <div className="AnswersUserResponse">
         <h2>Retour de l'utilisateur : </h2>
-        <h1>SAS</h1>
+          {resp}
       </div>
       <div className="AnswersHistory">
         {

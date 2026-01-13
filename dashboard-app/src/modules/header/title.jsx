@@ -1,10 +1,14 @@
+import './style.css'
+
 function DashboardHeaderTitle() {
 
   return (
-    <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
-      TABLEAU DE BORD HALLOWEEN 2025
+    <div className="TitleContainer">
+      <div className="Title" >
+        <h1>TABLEAU DE BORD HALLOWEEN 2025</h1>
+      </div>
     </div>
-  )
+    )
 }
 
 export default DashboardHeaderTitle

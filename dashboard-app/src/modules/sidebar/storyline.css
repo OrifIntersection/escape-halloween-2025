@@ -26,11 +26,19 @@
   border-radius: 14px;
 }
 
+.StoryLineLayoutContentContainer {
+  border-radius: 10px;
+
+  padding: 0 20px 0 20px;
+  box-sizing: border-box;
+  background-color: #273050 ;
+}
+
 .StoryLineContent {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0px;
-  margin-top: 20px;
+  padding: 15px 0px;
+  margin: 10px 0 10px 0;
 }
