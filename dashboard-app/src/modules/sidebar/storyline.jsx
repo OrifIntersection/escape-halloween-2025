@@ -22,9 +22,9 @@ function StorylineSectionHeader({ section }) {
 function StorylineSectionAnimationContent({ animation }) {
   return (<>
     <div className="StoryLineContent">
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "80px" }}>{animation.position}</div>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start",  width: "200px"}} className="StoryLineContentPosition ">{animation.name}</div>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "auto" }}>Durée : {animation.durationInSeconds} sec.</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", flexBasis: "20px" }}>{animation.position}</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start",  flexBasis: "200px"}} className="StoryLineContentPosition ">{animation.name}</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", flexBasis: "120px" }}>Durée : {animation.durationInSeconds} sec.</div>
     </div>
   </>)
 }
@@ -32,9 +32,9 @@ function StorylineSectionAnimationContent({ animation }) {
 function StorylineSectionCluesContent({ clues }) {
   return (<>
     <div className="StoryLineContent">
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "80px" }}>{clues.id}</div>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "60%" }} className="StoryLineContentPosition ">{clues.content}</div>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "auto" }}>Durée : {clues.displayAfter} sec.</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", flexBasis: "20px"  }}>{clues.id}</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", flexBasis: "200px"}} className="StoryLineContentPosition ">{clues.content}</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", flexBasis: "120px"}}>Durée : {clues.displayAfter} sec.</div>
     </div>
   </>)
 }
