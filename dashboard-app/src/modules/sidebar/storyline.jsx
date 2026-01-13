@@ -23,7 +23,7 @@ function StorylineSectionAnimationContent({ animation }) {
   return (<>
     <div className="StoryLineContent">
       <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "80px" }}>{animation.position}</div>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "60%"}} className="StoryLineContentPosition ">{animation.name}</div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start",  width: "200px"}} className="StoryLineContentPosition ">{animation.name}</div>
       <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", width: "auto" }}>Durée : {animation.durationInSeconds} sec.</div>
     </div>
   </>)
